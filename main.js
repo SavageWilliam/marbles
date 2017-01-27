@@ -3,28 +3,37 @@ const marble = document.getElementById('marble');
 const hole = document.getElementById('hole');
 
 // Initial hole position
-let hTop = hole.style.top = "80%";
+let hTop = hole.style.top = "85%";
 let hLeft = hole.style.left = "80%";
+
+const num = (val) => {
+  return val.slice(0, -1);
+}
 
 window.addEventListener("deviceorientation", handleOrientation, true);
 
+// Map device orientation to coordinates from 0-100
 function handleOrientation(event) {
   var z    = event.alpha;
   var x    = (event.beta + 90)/1.8; //-180 to 180
   var y    = (event.gamma + 90)/1.8; //-90 to 90
 
-  if(y===90) y
+// Contraints on coordinates for marble to remain in box
+  if (x >  95) { x =  95};
+  if (x < 5) { x = 5};
+  if (y >  95) { y =  95};
+  if (y < 8) { y = 8};
   marble.style.top  = x + '%';
   marble.style.left = y + '%';
 
 
 
-  let xupper = hTop + 2;
-  let xlower = hTop - 2 ;
+  let xupper = num(hTop) + 2;
+  let xlower = num(hTop) - 2 ;
   let xtrue = (xupper > x && xlower < x);
 
-  let yupper = hLeft + 2;
-  let ylower = hLeft - 2;
+  let yupper = num(hLeft) + 2;
+  let ylower = num(hLeft) - 2;
   let ytrue = (xupper > y && xlower < y);
 
   if(xtrue && ytrue) {
@@ -43,7 +52,7 @@ function handleOrientation(event) {
       if (i===max) {cnt = -10;}
       if (i===0)  {cnt = 10;}
       colourBox(i)
-      setTimeout(timer, 60);
+      setTimeout(timer, 100);
     }
 
     timer();
