@@ -5,14 +5,22 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='main.css'>
+    <link rel='stylesheet' href='eye.css'>
   </head>
   <body ontouchstart=''>
-    <div id='marbleBox' class='box'>
-      <span id='marble' class='box__marble'>
-      </span>
+    <div id='game'>
 
-      <span id='hole' class='box__hole'>
-      </span>
+      <div id='success' class='success hidden'>
+      </div>
+
+      <div id='marbleBox' class='box'>
+        <span id='marble' class='box__ball eye'>
+          <span class="iris"></span>
+        </span>
+
+        <span id='hole' class='box__hole'>
+        </span>
+      </div>
 
     </div>
     <script type="text/javascript" src="main.js"></script>
