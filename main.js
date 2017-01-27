@@ -11,7 +11,7 @@ let hTop = '80%';
 let hLeft = '80%';
 
 // Level tracker
-let level = 5;
+let level = 1;
 
 window.addEventListener("deviceorientation", handleOrientation, true);
 
