@@ -8,8 +8,8 @@ var successMsg = document.getElementById('success');
 
 
 // Initial hole position
-var hTop = '80%';
-var hLeft = '80%';
+var hTop = '75%';
+var hLeft = '75%';
 
 // Level tracker
 var level = 1;
@@ -59,7 +59,7 @@ var onSuccess = function() {
       break;
     case 2:
       level++
-      resetHole("80%", "20%");
+      resetHole("75%", "20%");
       break;
     case 3:
       level++
@@ -67,14 +67,10 @@ var onSuccess = function() {
       break;
     case 4:
       level++
-      resetHole("80%", "50%");
-      break;
-    case 5:
-      level++
-      resetHole("15%", "15%");
+      resetHole("75%", "50%");
       break;
     //next stage
-    case 6:
+    case 5:
       level++
       console.log(load);
       ball.className = 'box__ball eight';
@@ -83,16 +79,20 @@ var onSuccess = function() {
       hole.style.background = 'url(images/snooker.jpg)';
       // hole.style.boxShadow = 'none'
       holeInner.style.background = 'url(images/snooker-ball.png)';
-      resetHole("70%", "70%");
+      resetHole("45%", "75%");
 
       break;
-    case 7:
+    case 6:
       level++
       resetHole("20%",'50%');
       break;
-    case 8:
+    case 7:
       level++
       resetHole("82%", "15%");
+      break;
+    case 8:
+      level++
+      resetHole("15%", "15%");
       break;
     case 9:
       level++
