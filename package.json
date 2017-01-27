@@ -1,0 +1,28 @@
+{
+  "name": "marbles",
+  "version": "1.0.0",
+  "description": "Using device orientation, align the marble with the hole",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SavageWilliam/marbles.git"
+  },
+  "author": "William Savage",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SavageWilliam/marbles/issues"
+  },
+  "homepage": "https://github.com/SavageWilliam/marbles#readme",
+  "dependencies": {
+    "hapi": "^16.1.0",
+    "inert": "^4.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
