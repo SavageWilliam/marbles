@@ -7,20 +7,25 @@
     <link rel='stylesheet' href='main.css'>
     <link rel='stylesheet' href='eye.css'>
     <link rel='stylesheet' href='hole.css'>
+    <link rel='stylesheet' href='8-ball.css'>
   </head>
   <body ontouchstart=''>
     <div id='game'>
 
-      <div id='success' class='success hidden'>
+      <!-- <span id='instructions'>
+        <span id='start'>Start<span>
+      <span> -->
+
+      <div id='success'>
       </div>
 
-      <div id='marbleBox' class='box'>
-        <span id='marble' class='box__ball eye'>
-          <span class="iris"></span>
+      <div id='ballBox' class='box'>
+        <span id='ball' class='box__ball eye'>
+          <span id='ballInner' class="iris"></span>
         </span>
 
         <div id='hole' class='box__hole frame'>
-          <div class='porthole'><div>
+          <div id='holeInner' class='porthole'><div>
         </div>
       </div>
 

@@ -15,11 +15,13 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transition: all 0.001s ease;
   border-radius: 50%;
   width: 4rem;
   height: 4rem;
-  z-index: 1;
+  z-index: 1000;
+  -webkit-box-shadow: 6px 8px 6px -6px black;
+   -moz-box-shadow: 6px 8px 6px -6px black;
+        box-shadow: 6px 8px 6px -6px black;
 }
 
 .box__hole {
@@ -28,16 +30,26 @@ body {
   border-radius: 30%;
   width: 4.5rem;
   height: 4.5rem;
+  top: 80%;
+  left: 80%;
 }
 
-.success {
+/*#success {
+opacity: 0;
+ transition: opacity 0.4s ease-in, display 0.4s step-end;
+ -ms-transition: opacity 0.4s ease-in, display 0.4s step-end;
+ -moz-transition: opacity 0.4s ease-in, display 0.4s step-end;
+ -webkit-transition: opacity 0.4s ease-in, display 0.4s step-end;
+}
+
+#success.show {
   height: 100vh;
   width: 100vw;
   z-index: 10;
-  background-color: #3324d1;
-}
-
-.hidden {
-  display: none;
-  transition: all 0.01s ease;
-}
+  background-color: white;
+  opacity: 1;
+  transition: opacity 0.4s ease-out, display 0.4s step-start;
+  -ms-transition: opacity 0.4s ease-out, display 0.4s step-start;
+  -moz-transition: opacity 0.4s ease-out, display 0.4s step-start;
+  -webkit-transition: opacity 0.4s ease-out, display 0.4s step-start;
+}*/
