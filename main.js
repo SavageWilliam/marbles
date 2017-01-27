@@ -6,14 +6,15 @@ const hole = document.getElementById('hole');
 const holeInner = document.getElementById('holeInner');
 const success = document.getElementById('success');
 
+ball.style.display = 'none'
 // Initial hole position
 let hTop = '80%';
 let hLeft = '80%';
 
 // Level tracker
 let level = 1;
-
-window.addEventListener("deviceorientation", handleOrientation, true);
+window.addEventListener("orientationchange", handleOrientation);
+window.addEventListener("deviceorientation", handleOrientation);
 
 // Map device orientation to coordinates from 0-100
 function handleOrientation(event) {
