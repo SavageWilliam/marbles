@@ -1,6 +1,7 @@
 body {
   margin: 0;
   background: url(images/wooden-floor-black.jpg);
+  font-family: 'poiret one', 'open sans';
 }
 
 .box {
@@ -30,18 +31,28 @@ body {
   border-radius: 30%;
   width: 4.5rem;
   height: 4.5rem;
-  top: 80%;
-  left: 80%;
+  top: 75%;
+  left: 60%;
 }
 
 #success {
   display: none;
-  padding-top: 30%;
+  padding-top: 10%;
   text-align: center;
-  font-family: 'poiret one', 'open sans';
-  font-weight: bold;
 }
 
+#instructions {
+  color: white;
+
+  text-align: center;
+  z-index:100;
+  width: 60%;
+  position: absolute;
+   top: 20%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+
+}
 /*#load {
 opacity: 0;
  transition: opacity 0.4s ease-in, display 0.4s step-end;
