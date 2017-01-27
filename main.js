@@ -1,13 +1,21 @@
-const box = document.getElementById('marbleBox');
-const marble = document.getElementById('marble');
+const game = document.getElementById('game');
+const box = document.getElementById('ballBox');
+const ball = document.getElementById('ball');
 const hole = document.getElementById('hole');
+const success = document.getElementById('success');
+
 
 // Initial hole position
-let hTop = hole.style.top = "85%";
-let hLeft = hole.style.left = "80%";
+let hTop = '80%';
+let hLeft = '80%';
 
-const num = (val) => {
-  return val.slice(0, -1);
+// Level tracker
+let level = 1;
+
+const level2 = {
+  img: 'url(images/wooden-floor.png)',
+  hTop: '20%',
+  hLeft: '50%'
 }
 
 window.addEventListener("deviceorientation", handleOrientation, true);
@@ -15,46 +23,68 @@ window.addEventListener("deviceorientation", handleOrientation, true);
 // Map device orientation to coordinates from 0-100
 function handleOrientation(event) {
   var z    = event.alpha;
-  var x    = (event.beta + 90)/1.8; //-180 to 180
-  var y    = (event.gamma + 90)/1.8; //-90 to 90
+  var x    = ((event.beta + 90)/1.8) + 5; //-180 to 180
+  var y    = ((event.gamma + 90)/1.8) + 5; //-90 to 90
 
-// Contraints on coordinates for marble to remain in box
+// Contraints on coordinates for ball to remain in box
   if (x >  93) { x =  93};
   if (x < 5) { x = 5};
   if (y >  90) { y =  90};
   if (y < 9) { y = 9};
 
-// Apply position to marble
-  marble.style.top  = x + '%';
-  marble.style.left = y + '%';
+// Apply position to ball
+  ball.style.top  = x + '%';
+  ball.style.left = y + '%';
 
-// Rules for getting marble in hole
-  let xupper = num(hTop) + 1;
-  let xlower = num(hTop) - 1;
+
+// Rules for getting ball in hole
+  let xupper = num(hTop) + 4;
+  let xlower = num(hTop) - 4;
   let xtrue = (xupper > x && xlower < x);
+  console.log('xupper:', xupper);
 
-  let yupper = num(hLeft) + 1;
-  let ylower = num(hLeft) - 1;
+  let yupper = num(hLeft) + 4;
+  let ylower = num(hLeft) - 4;
   let ytrue = (yupper > y && ylower < y);
 
-// Things to do WHEN marble in hole
+// Things to do WHEN ball in hole
   if(xtrue && ytrue) {
-    marble.style.display = 'none';
-    window.navigator.vibrate(300);
 
-
-    colourWin();
-
-    setTimeout(() => {
-      marble.style.display = 'inline-block';
-      box.style.backgroundColor = 'none';
-    }, 1500);
-
+    onSuccess();
   }
 }
 
-// Helper function
-const colourWin = () => {
+// Helper functions
+const onSuccess = () => {
+  window.navigator.vibrate(200);
+  switch(level) {
+    case 1:
+      level++
+      resetHole("20%",'50%');
+      break;
+    case 2:
+      level++
+      resetHole("80%", "20%");
+      break;
+    case 3:
+      level++
+      resetHole("30%", "30%");
+      break;
+    default:
+      console.log("HERE");
+      win();
+  }
+}
+// Reassign hole positon
+const resetHole = (top, left) => {
+  hTop = top;
+  hLeft = left;
+  hole.style.top = hTop;
+  hole.style.left = hLeft;
+}
+
+// Colour display for victory
+const win = () => {
   var i = 0, max = 360, cnt = 10;
   const party = function() {
     i += cnt;
@@ -65,8 +95,12 @@ const colourWin = () => {
   }
   const colourShow = (hue) => {
     const hslaString = `hsla(${hue}, 90%, 60%, 1)`
-    document.getElementById('game').style.backgroundColor = hslaString;
+    hole.style.display = 'none';
+    game.style.backgroundColor = hslaString;
   }
   party();
+}
 
+const num = (val) => {
+  return Number(val.slice(0, -1));
 }
