@@ -78,7 +78,6 @@ var onSuccess = function() {
       ballInner.className = 'ate'
       document.body.style.background = 'url(images/snooker.jpg)';
       hole.style.background = 'url(images/snooker.jpg)';
-      // hole.style.boxShadow = 'none'
       holeInner.style.background = 'url(images/snooker-ball.png)';
       resetHole("45%", "75%");
       break;
@@ -88,7 +87,7 @@ var onSuccess = function() {
       break;
     case 7:
       level++
-      resetHole("82%", "15%");
+      resetHole("79%", "20%");
       break;
     case 8:
       level++
@@ -98,6 +97,7 @@ var onSuccess = function() {
       level++
       resetHole("40%", "30%");
       break;
+    default:
       win();
   }
 }
@@ -132,3 +132,11 @@ var win = function() {
 var num = function(val) {
   return Number(val.slice(0, -1));
 }
+
+// function preloadImage(url){
+//   var img=new Image();
+//    img.src=url;
+//    return img;
+// }
+//
+// preloadImage("images/snooker.jpg");
