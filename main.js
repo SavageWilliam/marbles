@@ -5,11 +5,12 @@ var ballInner = document.getElementById('ballInner')
 var hole = document.getElementById('hole');
 var holeInner = document.getElementById('holeInner');
 var successMsg = document.getElementById('success');
+var instruct = document.getElementById('instructions')
 
 
 // Initial hole position
 var hTop = '75%';
-var hLeft = '75%';
+var hLeft = '60%';
 
 // Level tracker
 var level = 1;
@@ -55,6 +56,7 @@ var onSuccess = function() {
   switch(level) {
     case 1:
       level++
+      instruct.style.display = 'none';
       resetHole("20%",'50%');
       break;
     case 2:
@@ -72,7 +74,6 @@ var onSuccess = function() {
     //next stage
     case 5:
       level++
-      console.log(load);
       ball.className = 'box__ball eight';
       ballInner.className = 'ate'
       document.body.style.background = 'url(images/snooker.jpg)';
@@ -80,7 +81,6 @@ var onSuccess = function() {
       // hole.style.boxShadow = 'none'
       holeInner.style.background = 'url(images/snooker-ball.png)';
       resetHole("45%", "75%");
-
       break;
     case 6:
       level++
@@ -98,8 +98,6 @@ var onSuccess = function() {
       level++
       resetHole("40%", "30%");
       break;
-    default:
-      console.log("HERE");
       win();
   }
 }
