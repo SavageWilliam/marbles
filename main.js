@@ -1,12 +1,12 @@
-const game = document.getElementById('game');
-const box = document.getElementById('ballBox');
-const ball = document.getElementById('ball');
-const ballInner = document.getElementById('ballInner')
-const hole = document.getElementById('hole');
-const holeInner = document.getElementById('holeInner');
-const success = document.getElementById('success');
+var outer = document.getElementById('game');
+var box = document.getElementById('ballBox');
+var ball = document.getElementById('ball');
+var ballInner = document.getElementById('ballInner')
+var hole = document.getElementById('hole');
+var holeInner = document.getElementById('holeInner');
+var successMsg = document.getElementById('success');
 
-ball.style.display = 'none'
+
 // Initial hole position
 let hTop = '80%';
 let hLeft = '80%';
@@ -26,7 +26,7 @@ function handleOrientation(event) {
   if (x >  93) { x =  93};
   if (x < 5) { x = 5};
   if (y >  90) { y =  90};
-  if (y < 9) { y = 9};
+  if (y < 10) { y = 10};
 
 // Apply position to ball
   ball.style.top  = x + '%';
@@ -34,23 +34,22 @@ function handleOrientation(event) {
 
 
 // Rules for getting ball in hole
-  let xupper = num(hTop) + 4;
-  let xlower = num(hTop) - 4;
+  let xupper = num(hTop) + 5;
+  let xlower = num(hTop) - 5;
   let xtrue = (xupper > x && xlower < x);
 
-  let yupper = num(hLeft) + 4;
-  let ylower = num(hLeft) - 4;
+  let yupper = num(hLeft) + 5;
+  let ylower = num(hLeft) - 5;
   let ytrue = (yupper > y && ylower < y);
 
 // Things to do WHEN ball in hole
   if(xtrue && ytrue) {
-
     onSuccess();
   }
 }
 
 // Helper functions
-const onSuccess = () => {
+var onSuccess = () => {
   window.navigator.vibrate(200);
   switch(level) {
     case 1:
@@ -104,7 +103,7 @@ const onSuccess = () => {
   }
 }
 // Reassign hole positon
-const resetHole = (top, left) => {
+var resetHole = (top, left) => {
   hTop = top;
   hLeft = left;
   hole.style.top = hTop;
@@ -112,25 +111,25 @@ const resetHole = (top, left) => {
 }
 
 // Colour display for victory
-const win = () => {
+var win = () => {
   var i = 0, max = 360, cnt = 10;
-  const party = function() {
+  var party = function() {
     i += cnt;
     if (i===max) {cnt = -10;}
     if (i===0)  {cnt = 10;}
     colourShow(i)
     setTimeout(party, 100);
   }
-  const colourShow = (hue) => {
-    const hslaString = `hsla(${hue}, 90%, 60%, 1)`
+  var colourShow = (hue) => {
+    var hslaString = `hsla(${hue}, 90%, 60%, 1)`
     hole.style.display = 'none';
-    game.style.backgroundColor = hslaString;
+    outer.style.backgroundColor = hslaString;
   }
-  success.style.display = 'block';
+  successMsg.style.display = 'block';
   party();
 
 }
 
-const num = (val) => {
+var num = (val) => {
   return Number(val.slice(0, -1));
 }
