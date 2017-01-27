@@ -43,16 +43,7 @@ function handleOrientation(event) {
     window.navigator.vibrate(300);
 
 
-    var i = 0, max = 360, cnt = 10;
-    const timer = function() {
-      i += cnt;
-      if (i===max) {cnt = -10;}
-      if (i===0)  {cnt = 10;}
-      colourBox(i)
-      setTimeout(timer, 100);
-    }
-
-    timer();
+    colourWin();
 
     setTimeout(() => {
       marble.style.display = 'inline-block';
@@ -63,7 +54,19 @@ function handleOrientation(event) {
 }
 
 // Helper function
-const colourBox = (hue) => {
-  const hslaString = `hsla(${hue}, 90%, 60%, 1)`
-  document.getElementById('game').style.backgroundColor = hslaString;
+const colourWin = () => {
+  var i = 0, max = 360, cnt = 10;
+  const party = function() {
+    i += cnt;
+    if (i===max) {cnt = -10;}
+    if (i===0)  {cnt = 10;}
+    colourShow(i)
+    setTimeout(party, 100);
+  }
+  const colourShow = (hue) => {
+    const hslaString = `hsla(${hue}, 90%, 60%, 1)`
+    document.getElementById('game').style.backgroundColor = hslaString;
+  }
+  party();
+
 }
