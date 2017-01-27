@@ -8,18 +8,18 @@ var successMsg = document.getElementById('success');
 
 
 // Initial hole position
-let hTop = '80%';
-let hLeft = '80%';
+var hTop = '80%';
+var hLeft = '80%';
 
 // Level tracker
-let level = 1;
+var level = 1;
 window.addEventListener("orientationchange", handleOrientation);
 window.addEventListener("deviceorientation", handleOrientation);
 
 // Map device orientation to coordinates from 0-100
 function handleOrientation(event) {
   var z    = event.alpha;
-  var x    = ((event.beta + 90)/1.8) + 5; //-180 to 180
+  var x    = ((event.beta + 50)/1.8) + 5; //-180 to 180
   var y    = ((event.gamma + 90)/1.8) + 5; //-90 to 90
 
 // Contraints on coordinates for ball to remain in box
@@ -34,23 +34,24 @@ function handleOrientation(event) {
 
 
 // Rules for getting ball in hole
-  let xupper = num(hTop) + 5;
-  let xlower = num(hTop) - 5;
-  let xtrue = (xupper > x && xlower < x);
+  var xupper = num(hTop) + 3;
+  var xlower = num(hTop) - 3;
+  var xtrue = (xupper > x && xlower < x);
 
-  let yupper = num(hLeft) + 5;
-  let ylower = num(hLeft) - 5;
-  let ytrue = (yupper > y && ylower < y);
+  var yupper = num(hLeft) + 3;
+  var ylower = num(hLeft) - 3;
+  var ytrue = (yupper > y && ylower < y);
 
 // Things to do WHEN ball in hole
   if(xtrue && ytrue) {
+
     onSuccess();
   }
 }
 
 // Helper functions
-var onSuccess = () => {
-  window.navigator.vibrate(200);
+var onSuccess = function() {
+
   switch(level) {
     case 1:
       level++
@@ -103,7 +104,7 @@ var onSuccess = () => {
   }
 }
 // Reassign hole positon
-var resetHole = (top, left) => {
+var resetHole = function(top, left) {
   hTop = top;
   hLeft = left;
   hole.style.top = hTop;
@@ -111,7 +112,7 @@ var resetHole = (top, left) => {
 }
 
 // Colour display for victory
-var win = () => {
+var win = function() {
   var i = 0, max = 360, cnt = 10;
   var party = function() {
     i += cnt;
@@ -120,7 +121,7 @@ var win = () => {
     colourShow(i)
     setTimeout(party, 100);
   }
-  var colourShow = (hue) => {
+  var colourShow = function(hue) {
     var hslaString = `hsla(${hue}, 90%, 60%, 1)`
     hole.style.display = 'none';
     outer.style.backgroundColor = hslaString;
@@ -130,6 +131,6 @@ var win = () => {
 
 }
 
-var num = (val) => {
+var num = function(val) {
   return Number(val.slice(0, -1));
 }
