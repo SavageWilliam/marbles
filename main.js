@@ -1,9 +1,10 @@
 const game = document.getElementById('game');
 const box = document.getElementById('ballBox');
 const ball = document.getElementById('ball');
+const ballInner = document.getElementById('ballInner')
 const hole = document.getElementById('hole');
+const holeInner = document.getElementById('holeInner');
 const success = document.getElementById('success');
-
 
 // Initial hole position
 let hTop = '80%';
@@ -11,12 +12,6 @@ let hLeft = '80%';
 
 // Level tracker
 let level = 1;
-
-const level2 = {
-  img: 'url(images/wooden-floor.png)',
-  hTop: '20%',
-  hLeft: '50%'
-}
 
 window.addEventListener("deviceorientation", handleOrientation, true);
 
@@ -41,7 +36,6 @@ function handleOrientation(event) {
   let xupper = num(hTop) + 4;
   let xlower = num(hTop) - 4;
   let xtrue = (xupper > x && xlower < x);
-  console.log('xupper:', xupper);
 
   let yupper = num(hLeft) + 4;
   let ylower = num(hLeft) - 4;
@@ -69,6 +63,37 @@ const onSuccess = () => {
     case 3:
       level++
       resetHole("30%", "30%");
+      break;
+    case 4:
+      level++
+      resetHole("80%", "50%");
+      break;
+    case 5:
+      level++
+      resetHole("15%", "15%");
+      break;
+    //next stage
+    case 6:
+      level++
+      ball.className = 'box__ball eight';
+      ballInner.className = 'ate'
+      document.body.style.background = 'url(images/snooker.jpg)';
+      hole.style.background = 'url(images/snooker.jpg)';
+      // hole.style.boxShadow = 'none'
+      holeInner.style.background = 'url(images/snooker-ball.png)';
+      resetHole("70%", "70%");
+      break;
+    case 7:
+      level++
+      resetHole("20%",'50%');
+      break;
+    case 8:
+      level++
+      resetHole("82%", "15%");
+      break;
+    case 9:
+      level++
+      resetHole("40%", "30%");
       break;
     default:
       console.log("HERE");

@@ -19,17 +19,10 @@ body {
   width: 4rem;
   height: 4rem;
   z-index: 1000;
+  -webkit-box-shadow: 6px 8px 6px -6px black;
+   -moz-box-shadow: 6px 8px 6px -6px black;
+        box-shadow: 6px 8px 6px -6px black;
 }
-
-/*.shrink {
-  width: 2rem;
-  height: 2rem;
-  -webkit-transition: all 1s ease;
-     -moz-transition: all 1s ease;
-       -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-          transition: all 1s ease ;
-}*/
 
 .box__hole {
   position: absolute;
