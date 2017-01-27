@@ -11,7 +11,7 @@ let hTop = '80%';
 let hLeft = '80%';
 
 // Level tracker
-let level = 1;
+let level = 5;
 
 window.addEventListener("deviceorientation", handleOrientation, true);
 
@@ -75,6 +75,7 @@ const onSuccess = () => {
     //next stage
     case 6:
       level++
+      console.log(load);
       ball.className = 'box__ball eight';
       ballInner.className = 'ate'
       document.body.style.background = 'url(images/snooker.jpg)';
@@ -82,6 +83,7 @@ const onSuccess = () => {
       // hole.style.boxShadow = 'none'
       holeInner.style.background = 'url(images/snooker-ball.png)';
       resetHole("70%", "70%");
+
       break;
     case 7:
       level++
@@ -123,7 +125,9 @@ const win = () => {
     hole.style.display = 'none';
     game.style.backgroundColor = hslaString;
   }
+  success.style.display = 'block';
   party();
+
 }
 
 const num = (val) => {

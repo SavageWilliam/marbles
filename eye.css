@@ -1,11 +1,9 @@
 .eye {
   display: inline-block;
-
   margin: 0;
   border-radius: 50%;
   position: relative;
   background: radial-gradient(circle at 50% 40%, #fcfcfc, #efeff1 66%, #9b5050 100%);
-
 }
 
 .eye:after {
