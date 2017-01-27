@@ -6,6 +6,9 @@
   border-radius: 50%;
   position: relative;
   background: radial-gradient(circle at 50% 40%, #fcfcfc, #efeff1 66%, #9b5050 100%);
+  -webkit-box-shadow: 6px 8px 6px -6px black;
+   -moz-box-shadow: 6px 8px 6px -6px black;
+        box-shadow: 6px 8px 6px -6px black;
 }
 
 .eye:after {

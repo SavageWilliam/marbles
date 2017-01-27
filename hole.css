@@ -1,7 +1,7 @@
 .frame {
-  background: url(images/wooden-floor.png);
+  background: url(images/wooden-floor-black.jpg);
   border-radius: 50%;
-  /*box-shadow: -1px -1px 2px rgba(255,255,255,0.25), 3px 3px 6px 3px rgba(0,0,0,0.65), 2px 2px 0px 2px rgb(0,0,0), -2px 0px 0px rgb(0,0,0), 2px -2px 0px rgb(0,0,0);*/
+  box-shadow: -1px -1px 2px rgba(255,255,255,0.25), 3px 3px 6px 3px rgba(0,0,0,0.65), 2px 2px 0px 2px rgb(0,0,0), -2px 0px 0px rgb(0,0,0), 2px -2px 0px rgb(0,0,0);
   padding: 2%;
 
 }
