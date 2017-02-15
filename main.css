@@ -1,6 +1,10 @@
 body {
   margin: 0;
-  background: url(images/wooden-floor-black.jpg);
+  background: url(images/wooden-floor-black.jpg)no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   font-family: 'poiret one', 'open sans';
 }
 
